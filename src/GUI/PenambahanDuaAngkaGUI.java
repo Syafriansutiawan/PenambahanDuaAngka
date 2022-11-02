@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -127,6 +129,11 @@ public class PenambahanDuaAngkaGUI extends javax.swing.JFrame {
         );
 
         tambahBtn.setText("TAMBAH");
+        tambahBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahBtnActionPerformed(evt);
+            }
+        });
 
         hapusBtn.setText("HAPUS");
 
@@ -182,6 +189,23 @@ public class PenambahanDuaAngkaGUI extends javax.swing.JFrame {
     private void angkaPertamaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angkaPertamaTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_angkaPertamaTFActionPerformed
+
+    private void tambahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBtnActionPerformed
+        // TODO add your handling code here:
+          if(angkaPertamaTF.getText().equals("") || angkaKeduaTF.getText().equals("")){
+           //kasi dialog input tidak boleh kosong
+           JOptionPane.showMessageDialog(null, "Salah satu input tidak boleh kosong");
+       } else {
+           int angkaPertama = Integer.valueOf(angkaPertamaTF.getText());
+            int angkaKedua = Integer.valueOf(angkaKeduaTF.getText());
+            
+            int hasil = angkaPertama + angkaKedua;
+            
+            hasilTF.setText(Integer.toString(hasil));
+                    
+       }
+   
+    }//GEN-LAST:event_tambahBtnActionPerformed
 
     /**
      * @param args the command line arguments
